@@ -1,0 +1,95 @@
+find a way to stay signed in
+
+im thinking about using username/pw to sign in, but people probably aren’t going to want to type in their passwords.
+
+
+
+https://www.reddit.com/api/v1/authorize?client_id=CLIENT_ID&response_type=TYPE&
+    state=RANDOM_STRING&redirect_uri=URI&duration=DURATION&scope=SCOPE_STRING
+
+https://www.reddit.com/api/v1/authorize?client_id=aO_hakV12sMyFA&response_type=code&state=rong&redirect_uri=http://127.0.0.1:3000&scope=read
+
+look at mobile site to get an idea of howthey use the  api
+
+client_id: aO_hakV12sMyFA
+secret: 07uq5ys9b9DNhc6payeqCWXz15g
+
+
+there is a ‘likes’ parameter for each post. use oauth.reddit…… remember to use the right scope. 
+
+A space-separated list of scope strings
+
+
+for the upvotes, they change the width based on the biggest # of digits on the page for the upvotes.
+
+make screen smaller and then scroll right
+
+when on front app. if i have count in the url then the activeLink won’t be active
+
+only front and all should have links to other subreddits within events
+
+when i click on the subreddit link in an event it updates and doesn’t go to top of screen if it goes from app to app. works if i go from front app to app. 
+
+bug: go to a page with less than 25 posts and start clicking next/prev
+
+
+it’s really dumb using frontapp and app.
+
+
+make sure you make it so the spriteurlimage only loads once
+
+
+/r/random redirects to some random
+
+
+https://www.reddit.com/api/morechildren.json?api_type=json&link_id=t3_50ytdx&children=d783ntn
+there are some empty children. 
+id is the actual id of the comment
+
+‘more’ contains an array of children that are direct replies
+from what it seems, it doesn’t contain any ‘more’, it includes those already.
+i think i’m going to skip this feature lol
+
+if there is a more comments link that are replies to a particular comment that means the array elements are all direct replies. 
+
+https://www.reddit.com/r/redditdev/comments/46inee/are_there_plans_to_fix_apimorechildren/
+
+
+save scroll position
+
+page size changes with expand/close comments
+
+
+make reddit. 
+
+no subreddits. no users as of now. anyone can upvote or post. 
+
+there are many clones, just copy one of those for styling. 
+
+
+www.reddit.com/r/all.json
+
+preview: {images: [{source: {url:__, width:__, height:__}, resolutions: [{}}] }
+
+
+
+they want us to use oauth
+
+https://www.reddit.com/r/all.json?after=t3_51962h
+
+this gives us the 25 posts after the type+id. 
+
+
+if someone creates a new post, it is saved to to a  database
+
+
+the link is a get request to get an html from the db. How do we make the html?? 
+
+
+when we click the link we want to send the get request, when we get back the json we want to build the page. 
+
+
+children[0].data     replies.data
+
+children[0].data.replies.data.children[0].data.replies.data
+
